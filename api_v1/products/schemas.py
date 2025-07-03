@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class ProductBase(BaseModel):
@@ -9,6 +9,16 @@ class ProductBase(BaseModel):
 
 class ProductCreate(ProductBase):
     pass
+
+
+class ProductUpdate(ProductCreate):
+    pass
+
+
+class ProductUpdatePartial(BaseModel):
+    name: str | None = None
+    description: str | None = None
+    price: int | None = None
 
 
 class Product(ProductBase):
